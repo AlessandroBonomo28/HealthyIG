@@ -13,9 +13,9 @@ I am deeply AGAINST ANY FORM OF PIRACY! This is aimed at showing how to use apkt
 
 HealthyIG is a modified version of the Instagram app that **BLOCKS** all the toxic Instagram features like
 * reels
-* home page
+* the home page
 * reel chaining
-* explore section
+* the explore section
 
 HealthyIG prevents doom-scrolling and **ALLOWS** you to use all of the other Instagram features, like
 * view your friend's stories
@@ -39,8 +39,8 @@ Requires **Linux** with the following tools:
 I found `com.instagram.android_version...apk` on APKMirror. As an alternative, you can extract it from your phone.
 
 ## Build your own APK
-### Obtain the Instagram APK
-You can download the Instagram APK from [APKMirror](https://www.apkmirror.com/apk/instagram/instagram-instagram/instagram-instagram-300-0-0-29-110-release/). Alternatively, you can follow these steps to download the obtain the APK from your phone directly:
+### Get the Instagram APK
+You can download the Instagram APK from [APKMirror](https://www.apkmirror.com/apk/instagram/instagram-instagram/instagram-instagram-300-0-0-29-110-release/). Alternatively, you can follow these steps to download to extract the APK from your phone directly:
 * Open the Settings app.
 * Open the menu `About phone`.
 * Click on `Build number` until you get developer option.
