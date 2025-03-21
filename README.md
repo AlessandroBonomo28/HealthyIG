@@ -1,10 +1,12 @@
 ## Healthy IG
-<img src="https://github.com/user-attachments/assets/c2b2658c-6cca-4100-bbfb-eba8ffd53ec2" width="350"  />
+<div style="display: flex; justify-content: center;">
+  <img src="https://github.com/user-attachments/assets/c2b2658c-6cca-4100-bbfb-eba8ffd53ec2" width="350" />
+</div>
 
 ⚠️ **Get it here**: https://detox.bonomo.cloud ⚠️
 
 ### Disclaimer
-I am deeply AGAINST ANY FORM OF PIRACY! This is aimed at showing how to use apktool on your own. I repeat, NO PIRACY! The original author of script.sh is [Break The Scroll](https://breakthescroll.com/).
+I am deeply AGAINST ANY FORM OF PIRACY! This is aimed at showing how to use apktool on your own. I repeat, NO PIRACY! The original author of `script.sh` is [Break The Scroll](https://breakthescroll.com/).
 
 ### Features
 > 📹 Checkout the YouTube video: https://www.youtube.com/watch?v=i3DQbfRWN9s
@@ -15,9 +17,7 @@ HealthyIG is a modified version of the Instagram app that **BLOCKS** all the tox
 * reel chaining
 * explore section
 
-HealthyIG prevents doom-scrolling and **ALLOWS** you to use all of the other
-Instagram features, like
-
+HealthyIG prevents doom-scrolling and **ALLOWS** you to use all of the other Instagram features, like
 * view your friend's stories
 * navigate to profiles via the search bar
 * view profiles
@@ -29,7 +29,7 @@ The app is safe. I installed the base Instagram app from **APKMirror**, decompil
 ## Requirements
 Requires **Linux** with the following tools:
 
-* apktool (install https://apktool.org/docs/install/)
+* [apktool](https://apktool.org/docs/install/)
 * zipalign (`sudo apt install zipalign -y`)
 * apksigner (`sudo apt install apksigner -y`)
 
@@ -53,7 +53,7 @@ You can download the Instagram APK from [APKMirror](https://www.apkmirror.com/ap
 * Finally, pull the APK by running `adb pull <path>`.
 
 ### Run the patch script
-```
+```bash
 # copy/rename it to ig.apk
 sudo cp com.instagram.android_version...apk ig.apk
 
@@ -63,7 +63,7 @@ apktool d -r -f -o ig_plain ig.apk
 
 **Note:** always check after you run `script.sh` that the script doesn't corrupt itself, replacing its own '//' characters
 
-```
+```bash
 # break the endpoints with script.sh
 sudo chmod +x script.sh
 ./script.sh
@@ -82,8 +82,8 @@ keytool -genkeypair -alias key0 -keyalg RSA -keysize 4096 -validity 10000 -keyst
 # sign the apk with 'foobar' as password
 echo foobar | apksigner sign --ks ./patched_instagram_key.jks --v1-signing-enabled true --v2-signing-enabled true --v3-signing-enabled false install.apk
 ```
-- Now **uninstall your current Instagram app**
-- Copy `install.apk` to your phone, and install it
+- Now **uninstall the Instagram app**.
+- Copy `install.apk` to your phone, and install it.
 
 # Helpful resources
 * [Block reels on Instagram – Geek approach](https://breakthescroll.com/block-reels-instagram/)
@@ -91,6 +91,6 @@ echo foobar | apksigner sign --ks ./patched_instagram_key.jks --v1-signing-enabl
 * [Download the Instagram APK on APKMirror](https://www.apkmirror.com/apk/instagram/)
 
 # Donate 🎁
-If this improves your life, you can [buy me a coffee](https://buymeacoffee.com/servizibon0)
+If this improves your life, you can [buy me a coffee](https://buymeacoffee.com/servizibon0).
 
 ![thumb-1920-1354126-181625882](https://github.com/user-attachments/assets/5fc556f0-c09b-4f3b-8626-3f56a5156e5a)
