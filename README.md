@@ -6,7 +6,7 @@
 ⚠️ **Get it here**: https://detox.bonomo.cloud ⚠️
 
 ### Disclaimer
-I am deeply AGAINST ANY FORM OF PIRACY! This is aimed at showing how to use apktool on your own. I repeat, NO PIRACY! The original author of `script.sh` is [Break The Scroll](https://breakthescroll.com/).
+I am deeply AGAINST ANY FORM OF PIRACY! This is aimed at showing how to use apktool on your own. I repeat, NO PIRACY! The original author of `patch.sh` is [Break The Scroll](https://breakthescroll.com/).
 
 ### Features
 > 📹 Checkout the YouTube video: https://www.youtube.com/watch?v=i3DQbfRWN9s
@@ -54,33 +54,7 @@ You can download the Instagram APK from [APKMirror](https://www.apkmirror.com/ap
 
 ### Run the patch script
 ```bash
-# copy/rename it to ig.apk
-sudo cp com.instagram.android_version...apk ig.apk
-
-# decompile the apk
-apktool d -r -f -o ig_plain ig.apk
-```
-
-**Note:** always check after you run `script.sh` that the script doesn't corrupt itself, replacing its own '//' characters
-
-```bash
-# break the endpoints with script.sh
-sudo chmod +x script.sh
-./script.sh
-
-# recompile the apk
-apktool b -r -f ig_plain
-
-sudo cp ig_plain/dist/ig.apk patched.apk
-
-# optimize with zipalign
-zipalign -v 4 patched.apk install.apk
-
-# generate keypair (insert password 'foobar', the keygen step is required only the first time)
-keytool -genkeypair -alias key0 -keyalg RSA -keysize 4096 -validity 10000 -keystore patched_instagram_key.jks
-
-# sign the apk with 'foobar' as password
-echo foobar | apksigner sign --ks ./patched_instagram_key.jks --v1-signing-enabled true --v2-signing-enabled true --v3-signing-enabled false install.apk
+./patch.sh
 ```
 - Now **uninstall the Instagram app**.
 - Copy `install.apk` to your phone, and install it.
