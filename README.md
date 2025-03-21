@@ -1,7 +1,7 @@
 ## Healthy IG
-<div style="display: flex; justify-content: center;">
+<p align="center">
   <img src="https://github.com/user-attachments/assets/c2b2658c-6cca-4100-bbfb-eba8ffd53ec2" width="350" />
-</div>
+</p>
 
 ⚠️ **Get it here**: https://detox.bonomo.cloud ⚠️
 
