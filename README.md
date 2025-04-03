@@ -103,6 +103,7 @@ sudo echo foobar | apksigner sign --ks ./patched_instagram_key.jks --v1-signing-
 - ❌ Avoid unnecessary modifications that drastically change existing code.
 
 # Helpful resources
+* Checkout [troubleshoot guide](TROUBLESHOOT.md), you may find the solution to your problem 
 * [Block reels on Instagram – Geek approach by breakthescroll.com](https://breakthescroll.com/block-reels-instagram/)
 * [Decompile, Recompile, and Sign APKs by Example](https://umatechnology.org/decompile-recompile-and-sign-apks-by-example/)
 * [Instagram APKs on APKMirror](https://www.apkmirror.com/apk/instagram/)
