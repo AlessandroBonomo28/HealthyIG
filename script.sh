@@ -18,60 +18,50 @@ declare -A replacements
 ########### Uncomment / Comment to Add / Remove resources endpoints ###########
 ###############################################################################
 
-### Search section feed (Does not remove search users funcionality)
+# Feed endpoints to be removed
 replacements["\"discover/topical_explore/\""]="\"\""
-
-### Feed main screen
-replacements["feed/timeline/\""]="\""
-
-### Feed stories (CAN still upload stories)
-# replacements["\"feed/reels_tray/\""]="\"\""
-
-### Reels
+replacements["\"feed/timeline/\""]="\"\""
 replacements["\"clips/discover/\""]="\"\""
 replacements["\"discover/explore_clips/\""]="\"\""
 replacements["\"clips/discover/stream/\""]="\"\""
-#replacements["\"clips/\""]="\"\""
 replacements["\"clips/suggested_template\""]="\"\""
 replacements["\"clips/trend/\""]="\"\""
-#replacements["\"clips/items/\""]="\"\""
 replacements["\"discover/discover_similar_clips/\""]="\"\""
 replacements["\"/suggested_content/\""]="\"\""
-#replacements["\"clips/item/\""]="\"\""
 replacements["\"clips/home/\""]="\"\""
 replacements["\"clips/chaining/\""]="\"\""
 replacements["\"clips/recommended_label/\""]="\"\""
-#replacements["\"clips/stream_clips_pivot_page/\""]="\"\""
-#replacements["\"clips/risu_medias/\""]="\"\""
-#replacements["\"clips_media_ids\""]="\"\""
-#replacements["\"/clips\""]="\"\""
 replacements["\"/clips_media_feed/\""]="\"\""
 
-
 ###############################################################################
 ###############################################################################
 ###############################################################################
 
-echo "Breaking endpoints... This can take few minutes"
+echo "Breaking endpoints... This can take a few minutes"
 
-# Function to escape special characters for sed
-escape_string_for_sed() {
-    local string="$1"
-    string=$(sed 's/[&/\]/\\&/g' <<< "$string")
-    echo "$string"
-}
+# Collect files (excluding this script and .apk files)
+mapfile -t files < <(find "$target_directory" -type f ! -name "$script_name" ! -name "*.apk")
+file_count=${#files[@]}
 
-# Loop through the keys and values in the array
-for old_endpoint in "${!replacements[@]}"; do
-    new_endpoint="${replacements[$old_endpoint]}"
-    
-    # Escape special characters for use in sed
-    old_endpoint_escaped=$(escape_string_for_sed "$old_endpoint")
-    new_endpoint_escaped=$(escape_string_for_sed "$new_endpoint")
-
-
-    # Use find and sed to replace the endpoint in all files (Excluding this script)
-    find "$target_directory" -type f ! -name "$script_name" ! -name "*.apk" -exec sed -i "s/$old_endpoint_escaped/$new_endpoint_escaped/g" {} +
+# Create a temporary sed script file to store all replacements (batch processing)
+sed_script=$(mktemp)
+for old in "${!replacements[@]}"; do
+    new="${replacements[$old]}"
+    echo "s|$old|$new|g" >> "$sed_script"
 done
+
+# Check if tqdm is installed for progress tracking
+if command -v tqdm &> /dev/null; then
+    echo "Processing $file_count files with tqdm progress..."
+    # Use tqdm for progress and xargs for parallel execution
+    printf "%s\n" "${files[@]}" | tqdm --total=$file_count --desc "Replacing Endpoints" | xargs -I {} sed -i -f "$sed_script" "{}"
+else
+    echo "tqdm not installed. Running without progress bar."
+    # Process files without tqdm
+    xargs -a <(printf "%s\n" "${files[@]}") -I {} sed -i -f "$sed_script" "{}"
+fi
+
+# Clean up temporary sed script
+rm "$sed_script"
 
 echo "Success: Endpoints broken!"
