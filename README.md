@@ -9,14 +9,14 @@
 | ig 300.0.0.29.110 | x86 Android 7+ nodpi | ✅ Tested | 2023-09 |
 | ig for IOS | iOS .ipa sideload | ❌ Need help | - |
 
-### Disclaimer
+### Disclaimer 
 I am deeply AGAINST ANY FORM OF PIRACY!
 this is aimed at showing how to use apktool on your own.
 I repeat, NO PIRACY!
 the original author of `script.sh` is [breakthescroll.com](https://breakthescroll.com/).
 
 - **The older the ig version is, the higher is the risk of missing official instagram security updates**
-### Mission
+### Mission 🌿
 **The mission** is is to **prevent scrolling and empower the user** since Meta doesn't allow you to deactivate reels.
 If you want to **contribute** just spread the word or make a pull request following the **contribution guidelines** at the end of the page.
 ### Features
