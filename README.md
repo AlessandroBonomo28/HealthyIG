@@ -90,7 +90,7 @@ sudo echo foobar | apksigner sign --ks ./patched_instagram_key.jks --v1-signing-
 ## 🚀 Best Practices
 - 🔹 Avoid overengineering `script.sh`.
 - 🔹 Minimize changes to `README.md` unless absolutely necessary.
-- 🔹 If you find alternative methods document it into a different `file.md`.
+- 🔹 If you find alternative methods document it into a different `yourfile.md`.
 ## 🎯 Preferred Contributions
 | Type | Description |
 |------|------------|
