@@ -36,6 +36,7 @@ Requires **linux** with the following tools:
 - apktool (install https://apktool.org/docs/install/)
 - zipalign (`sudo apt install zipalign -y`)
 - apksigner (`sudo apt install apksigner -y`)
+- tqdm [optional, for displaying progress] (`sudo pip3 install tqdm`)
 
 - `install.apk` is the patched ig (home, explore, reels deactivated but you can still see your friend's reels)
 - `ig.apk` is the copy of `com.instagram.android_version...apk`
