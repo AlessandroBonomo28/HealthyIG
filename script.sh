@@ -18,19 +18,32 @@ declare -A replacements
 ########### Uncomment / Comment to Add / Remove resources endpoints ###########
 ###############################################################################
 
-# Feed endpoints to be removed
 replacements["\"discover/topical_explore/\""]="\"\""
-replacements["\"feed/timeline/\""]="\"\""
+
+### Feed main screen
+replacements["feed/timeline/\""]="\""
+
+### Feed stories (CAN still upload stories)
+# replacements["\"feed/reels_tray/\""]="\"\""
+
+### Reels
 replacements["\"clips/discover/\""]="\"\""
 replacements["\"discover/explore_clips/\""]="\"\""
 replacements["\"clips/discover/stream/\""]="\"\""
+#replacements["\"clips/\""]="\"\""
 replacements["\"clips/suggested_template\""]="\"\""
 replacements["\"clips/trend/\""]="\"\""
+#replacements["\"clips/items/\""]="\"\""
 replacements["\"discover/discover_similar_clips/\""]="\"\""
 replacements["\"/suggested_content/\""]="\"\""
+#replacements["\"clips/item/\""]="\"\""
 replacements["\"clips/home/\""]="\"\""
 replacements["\"clips/chaining/\""]="\"\""
 replacements["\"clips/recommended_label/\""]="\"\""
+#replacements["\"clips/stream_clips_pivot_page/\""]="\"\""
+#replacements["\"clips/risu_medias/\""]="\"\""
+#replacements["\"clips_media_ids\""]="\"\""
+#replacements["\"/clips\""]="\"\""
 replacements["\"/clips_media_feed/\""]="\"\""
 
 ###############################################################################
