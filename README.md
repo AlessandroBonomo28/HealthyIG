@@ -88,9 +88,9 @@ sudo echo foobar | apksigner sign --ks ./patched_instagram_key.jks --v1-signing-
 # 🛠️ Contribution Guidelines
 
 ## 🚀 Best Practices
-- 🔹 Avoid overengineering `script.sh`.
-- 🔹 Minimize changes to `README.md` unless absolutely necessary.
-- 🔹 If you find alternative methods document it into a different `yourfile.md`.
+- Avoid overengineering `script.sh`.
+- Minimize changes to `README.md` unless absolutely necessary.
+- If you find alternative methods document it into a different `yourfile.md`.
 ## 🎯 Preferred Contributions
 | Type | Description |
 |------|------------|
@@ -112,7 +112,7 @@ sudo echo foobar | apksigner sign --ks ./patched_instagram_key.jks --v1-signing-
 * [DFinstagram - alternative ig version](https://www.distractionfreeapps.com/)
 * many more
 # Donate 🎁
-If this improves your life and you can [buy me a coffe☕](https://buymeacoffee.com/servizibon0) With your support, I can continue to provide valuable programming tutorials and insights
+If this improves your life you can [buy me a coffe☕](https://buymeacoffee.com/servizibon0) With your support, I can continue to provide valuable programming tutorials and insights
 
 ![ggJxiFC4fys-HD](https://github.com/user-attachments/assets/0ff89cc0-c1f8-4356-a0bc-23d594b99df2)
 
