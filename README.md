@@ -15,7 +15,7 @@ this is aimed at showing how to use apktool on your own.
 I repeat, NO PIRACY!
 the original author of `script.sh` is [breakthescroll.com](https://breakthescroll.com/).
 
-- **The older the ig version is, the higher is the risk of missing official instagram security updates**
+- **The older the ig version, the higher the risk of missing official instagram security updates**
 ### Mission 🌿
 **The mission** is is to **prevent scrolling and empower the user** since Meta doesn't allow you to deactivate reels.
 If you want to **contribute** just spread the word or make a pull request following the **contribution guidelines** at the end of the page.
@@ -107,6 +107,7 @@ sudo echo foobar | apksigner sign --ks ./patched_instagram_key.jks --v1-signing-
 * [Block reels on Instagram – Geek approach by breakthescroll.com](https://breakthescroll.com/block-reels-instagram/)
 * [Decompile, Recompile, and Sign APKs by Example](https://umatechnology.org/decompile-recompile-and-sign-apks-by-example/)
 * [Instagram APKs on APKMirror](https://www.apkmirror.com/apk/instagram/)
+* To discover new endpoints try [ssl pinning bypass](https://github.com/Eltion/Instagram-SSL-Pinning-Bypass) or [burp](https://github.com/Nerixyz/BurpInstaTools). You can also manually decompile and search using `grep` command
 ### Similar projects
 * [Instander - alternative ig version](https://instandersapp.com/)
 * [DFinstagram - alternative ig version](https://www.distractionfreeapps.com/)
