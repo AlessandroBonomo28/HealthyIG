@@ -50,6 +50,7 @@ Requires **linux or WSL** detailed guide [here](https://github.com/AlessandroBon
 - zipalign (`sudo apt install zipalign -y`)
 - apksigner (`sudo apt install apksigner -y`)
 - tqdm [optional, for displaying progress] (`sudo pip3 install tqdm`)
+- sed xargs (support run the script faster)
 
 - `install.apk` is the patched ig (home, explore, reels deactivated but you can still see your friend's reels)
 - `ig.apk` is the copy of `com.instagram.android_version...apk`
