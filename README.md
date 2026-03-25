@@ -50,6 +50,7 @@ Requires **linux or WSL** detailed guide [here](https://github.com/AlessandroBon
 - zipalign (`sudo apt install zipalign -y`)
 - apksigner (`sudo apt install apksigner -y`)
 - tqdm [optional, for displaying progress] (`sudo pip3 install tqdm`)
+- sed xargs (support run the script faster)
 
 - `install.apk` is the patched ig (home, explore, reels deactivated but you can still see your friend's reels)
 - `ig.apk` is the copy of `com.instagram.android_version...apk`
@@ -71,6 +72,8 @@ sudo chmod +x script.sh
 sudo ./script.sh
 
 # recompile the apk
+# for the apktool >= 3.0 run: sudo apktool b -f ig_plain -o ig_patched.apk
+# run this in case it required more heap space (need to provide more RAM to run): sudo java -Xmx4g -jar /usr/local/bin/apktool.jar b -f ig_plain -o ig_patched.apk
 sudo apktool b -r -f ig_plain
 
 sudo cp ig_plain/dist/ig.apk patched.apk

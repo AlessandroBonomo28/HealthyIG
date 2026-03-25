@@ -1,82 +1,62 @@
 #!/bin/bash
 
 ################################################################################
-# Description: Replaces Instagram feed endpoints
-# Author: breakthescroll.com
+# Description: Replaces Instagram feed endpoints (Optimized for WSL/Linux)
+# Author: Adapted for Hoàng Minh Tâm
 ################################################################################
 
-# Get the script name
 script_name=$(basename "$0")
-
-# Directory of the decompiled app
 target_directory="."
 
-# Define the replacements
+HAS_TQDM=false
+if command -v tqdm &> /dev/null; then
+    HAS_TQDM=true
+fi
+
 declare -A replacements
 
-###############################################################################
-########### Uncomment / Comment to Add / Remove resources endpoints ###########
-###############################################################################
+# --- Explore & Main Feed ---
+replacements["discover/topical_explore/"]=""
+replacements["feed/timeline/"]=""
 
-replacements["\"discover/topical_explore/\""]="\"\""
+# --- Reels / Clips ---
+replacements["clips/discover/"]=""
+replacements["clips/discover/social/"]=""
+replacements["discover/explore_clips/"]=""
+replacements["clips/discover/stream/"]=""
+replacements["clips/suggested_template"]=""
+replacements["clips/trend/"]=""
+replacements["discover/discover_similar_clips/"]=""
+replacements["/suggested_content/"]=""
+replacements["clips/home/"]=""
+replacements["clips/chaining/"]=""
+replacements["clips/recommended_label/"]=""
+replacements["/clips_media_feed/"]=""
 
-### Feed main screen
-replacements["feed/timeline/\""]="\""
-
-### Feed stories (CAN still upload stories)
-# replacements["\"feed/reels_tray/\""]="\"\""
-
-### Reels
-replacements["\"clips/discover/\""]="\"\""
-# clips/discover/social removes reels liked by friends
-replacements["\"clips/discover/social/\""]="\"\"" 
-replacements["\"discover/explore_clips/\""]="\"\""
-replacements["\"clips/discover/stream/\""]="\"\""
-#replacements["\"clips/\""]="\"\""
-replacements["\"clips/suggested_template\""]="\"\""
-replacements["\"clips/trend/\""]="\"\""
-#replacements["\"clips/items/\""]="\"\""
-replacements["\"discover/discover_similar_clips/\""]="\"\""
-replacements["\"/suggested_content/\""]="\"\""
-#replacements["\"clips/item/\""]="\"\""
-replacements["\"clips/home/\""]="\"\""
-replacements["\"clips/chaining/\""]="\"\""
-replacements["\"clips/recommended_label/\""]="\"\""
-#replacements["\"clips/stream_clips_pivot_page/\""]="\"\""
-#replacements["\"clips/risu_medias/\""]="\"\""
-#replacements["\"clips_media_ids\""]="\"\""
-#replacements["\"/clips\""]="\"\""
-replacements["\"/clips_media_feed/\""]="\"\""
-
-###############################################################################
-###############################################################################
-###############################################################################
-
-echo "Breaking endpoints... This can take a few minutes"
-
-# Collect files (excluding this script and .apk files)
-mapfile -t files < <(find "$target_directory" -type f ! -name "$script_name" ! -name "*.apk")
-file_count=${#files[@]}
-
-# Create a temporary sed script file to store all replacements (batch processing)
+# 1. Create file temp sed script to run batch
 sed_script=$(mktemp)
 for old in "${!replacements[@]}"; do
     new="${replacements[$old]}"
     echo "s|$old|$new|g" >> "$sed_script"
 done
 
-# Check if tqdm is installed for progress tracking
-if command -v tqdm &> /dev/null; then
-    echo "Processing $file_count files with tqdm progress..."
-    # Use tqdm for progress and xargs for parallel execution
-    printf "%s\n" "${files[@]}" | tqdm --total=$file_count --desc "Replacing Endpoints" | xargs -I {} sed -i -f "$sed_script" "{}"
+echo "🚀 Đang quét file và phá Endpoints... Đợi tí nhé bro!"
+
+# 2. Count amount file for progress bar (if it has tqdm)
+file_list=$(mktemp)
+find "$target_directory" -type f ! -name "$script_name" ! -name "*.apk" ! -path "*/.*" > "$file_list"
+file_count=$(wc -l < "$file_list")
+
+# 3. Start replacing with parallel processing
+if [ "$HAS_TQDM" = true ]; then
+    cat "$file_list" | tqdm --total="$file_count" --desc "Processing" --unit "file" | xargs -d '\n' -P 4 -n 20 sed -i -f "$sed_script"
 else
-    echo "tqdm not installed. Running without progress bar."
-    # Process files without tqdm
-    xargs -a <(printf "%s\n" "${files[@]}") -I {} sed -i -f "$sed_script" "{}"
+    echo "⚠️  tqdm chưa cài (pip3 install tqdm). Đang chạy chế độ thường..."
+    cat "$file_list" | xargs -d '\n' -P 4 -n 20 sed -i -f "$sed_script"
 fi
 
-# Clean up temporary sed script
+# 4. Cleanup temp files
 rm "$sed_script"
+rm "$file_list"
 
-echo "Success: Endpoints broken!"
+echo -e "\n✅ Done! All endpoints have been replaced. Enjoy your Instagram experience without those pesky feed endpoints! 🎉"
