@@ -13,7 +13,7 @@
 I am deeply AGAINST ANY FORM OF PIRACY!
 this is aimed at showing how to use apktool on your own.
 I repeat, NO PIRACY!
-the original author of `script.sh` is [breakthescroll.com](https://breakthescroll.com/).
+the original author of `script.sh` is [breakthescroll.com](https://breakthescroll.com/). **They also released [ScrollGuard](https://scrollguard.app/) the official Android - iOS app that blocks reels! I suggest you to try it**
 
 - **The older the ig version, the higher the risk of missing official instagram security updates**
 ### Mission 🌿
