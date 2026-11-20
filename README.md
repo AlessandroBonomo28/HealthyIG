@@ -173,8 +173,7 @@ When you exit the app and swipe up to free the RAM, all data gets wiped and you 
 * To discover new endpoints try [ssl pinning bypass](https://github.com/Eltion/Instagram-SSL-Pinning-Bypass) or [burp](https://github.com/Nerixyz/BurpInstaTools). You can also use [JADX](https://github.com/skylot/jadx) or [Ghidra](https://github.com/NationalSecurityAgency/ghidra) to reverse engineer.
 ### Similar projects
 * [SC insta](https://github.com/SoCuul/SCInsta)
-* [DFinstagram - alternative ig version](https://www.distractionfreeapps.com/)
-* many more
+* [Unscroll - iPhone no reel ig version](https://github.com/Mihir-A/Unscroll)
 # Donate 🎁
 If this improves your life you can [buy me a coffee☕](https://buymeacoffee.com/servizibon0) With your support, I can continue to provide valuable programming tutorials and insights
 
